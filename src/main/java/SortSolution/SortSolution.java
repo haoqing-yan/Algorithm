@@ -1,63 +1,105 @@
-package SortSolution;
+package sortSolution;
 
 /**
  * 排序算法
  *
- * @author donny yan
- * Create 2020/11/12
+ * @author donny yan Create 2020/11/12
  */
 public class SortSolution {
 
-    public static void main(String[] args) {
-        int[] array = {1, 52, 525, 23, 57, 7, 68, 8, 6, 97, 12, 5445, 4};
-        int[] sortArray = bubbleSort(array, "DESC");
-        for (int one : sortArray) {
-            System.out.print(" " + one);
+  private int[] sortArray;
+
+  public static void main(String[] args) {
+    int[] array = {1, 52, 525, 23, 57, 7, 68, 8, 6, 97, 12, 5445, 4};
+    SortSolution sortUtil = new SortSolution();
+    sortUtil.setSortArray(array);
+    sortUtil.quickSort(sortUtil.getSortArray(), 1, sortUtil.getSortArray().length - 1);
+    for (int one : sortUtil.getSortArray()) {
+      System.out.print(" " + one);
+    }
+
+  }
+
+  public int[] getSortArray() {
+    return sortArray;
+  }
+
+  public void setSortArray(int[] sortArray) {
+    this.sortArray = sortArray;
+  }
+
+  /**
+   * 冒泡排序
+   *
+   * @param array 要排序的数组
+   * @param type  排序方式    ASC -- 正序 DESC -- 倒序排序
+   * @return 返回排序好的数组
+   */
+  public void bubbleSort(int[] array, String type) {
+
+    for (int i = 0; i < array.length; i++) {
+      // 循环每一个与后面所有相比
+      for (int j = 0; j < array.length - i - 1; j++) {
+        // 根据输入的排序选择排序方式
+        if ("ASC".equals(type)) {
+          if (array[j] > array[j + 1]) {
+            int tmp = array[j + 1];
+            array[j + 1] = array[j];
+            array[j] = tmp;
+          }
         }
-    }
-
-    /**
-     * 冒泡排序
-     *
-     * @param array 要排序的数组
-     * @param type  排序方式    ASC -- 正序 DESC -- 倒序排序
-     * @return 返回排序好的数组
-     */
-    public static int[] bubbleSort(int[] array, String type) {
-
-        for (int i = 0; i < array.length; i++) {
-            for (int j = 0; j < array.length - i - 1; j++) {
-                if ("ASC".equals(type)) {
-                    if (array[j] > array[j + 1]) {
-                        int tmp = array[j + 1];
-                        array[j + 1] = array[j];
-                        array[j] = tmp;
-                    }
-                }
-                if ("DESC".equals(type)) {
-                    if (array[j] < array[j + 1]) {
-                        int tmp = array[j + 1];
-                        array[j + 1] = array[j];
-                        array[j] = tmp;
-                    }
-                }
-
-            }
+        if ("DESC".equals(type)) {
+          if (array[j] < array[j + 1]) {
+            int tmp = array[j + 1];
+            array[j + 1] = array[j];
+            array[j] = tmp;
+          }
         }
 
-        return array;
+      }
     }
 
-    /**
-     * 快速排序
-     *
-     * @param array 要排序的数组
-     * @param type  排序方式    ASC -- 正序 DESC -- 倒序排序
-     * @return 返回排序好的数组
-     */
-    public static int[] quickSort(int[] array, String type) {
+  }
 
-        return array;
+  /**
+   * 快速排序
+   *
+   * @param array 未排序的数组
+   * @param low   更小的数
+   * @param high  更大的数
+   * @return 返回排好序的数组
+   */
+  public static void quickSort(int[] array, int low, int high) {
+    int benchmark = 0;
+    int i = 0;
+    int j = 0;
+
+    if (low >= high) {
+      return;
     }
+    // benchmark 就是基准数,这里就是每个数组的第一个
+    benchmark = array[low];
+    i = low;
+    j = high;
+    while (i < j) {
+      //右边当发现小于p的值时停止循环
+      while (array[j] >= benchmark && i < j) {
+        j--;
+      }
+      //左边当发现大于p的值时停止循环
+      while (array[i] <= benchmark && i < j) {
+        i++;
+      }
+      int temp = array[j];
+      array[j] = array[i];
+      array[i] = temp;
+    }
+    array[low] = array[i];//这里的arr[i]一定是停小于 benchmark 的，经过i、j交换后i处的值一定是小于p的(j先走)
+    array[i] = benchmark;
+    quickSort(array, low, j - 1);  //对左边快排
+    quickSort(array, j + 1, high); //对右边快排
+
+  }
+
 
 }

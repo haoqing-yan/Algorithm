@@ -1,4 +1,5 @@
-.idea/
+java/leetcodeLearning/.idea/
+java/.idea/
 *.iml
-target
+java/leetcodeLearning/target/
 .vscode/

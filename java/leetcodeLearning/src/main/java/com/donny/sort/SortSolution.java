@@ -1,18 +1,7 @@
-package com.donny.sortSolution;
+package com.donny.sort;
 
 public class SortSolution {
     private int[] sortArray;
-
-    public static void main(String[] args) {
-        int[] array = {1, 52, 525, 23, 57, 7, 68, 8, 6, 97, 12, 5445, 4};
-        SortSolution sortUtil = new SortSolution();
-        sortUtil.setSortArray(array);
-        sortUtil.quickSort(sortUtil.getSortArray(), 1, sortUtil.getSortArray().length - 1);
-        for (int one : sortUtil.getSortArray()) {
-            System.out.print(" " + one);
-        }
-
-    }
 
     public int[] getSortArray() {
         return sortArray;

@@ -1,9 +1,9 @@
-package com.donny.datastruct;
+package com.donny.datastruct.list;
 
 import com.donny.datastruct.abstractstruct.MyList;
 
 /**
- * @author Your Name
+ * @author donnyyan
  * @date 2024/5/31
  */
 public class MyArray implements MyList {
@@ -93,20 +93,4 @@ public class MyArray implements MyList {
         System.out.println();
     }
 
-    // 主函数用于测试
-    public static void main(String[] args) {
-        MyArray array = new MyArray();
-        array.add(1);
-        array.add(2);
-        array.add(3);
-        array.printArray();
-
-        array.set(1, 4);
-        array.printArray();
-
-        array.remove(2);
-        array.printArray();
-
-        System.out.println("Size: " + array.size());
-    }
 }

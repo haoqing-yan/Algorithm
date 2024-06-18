@@ -1,7 +1,7 @@
 package com.donny.datastruct.abstractstruct;
 
 /**
- * @author Your Name
+ * @author donnyyan
  * @date 2024/5/31
  */
 public interface MyList {

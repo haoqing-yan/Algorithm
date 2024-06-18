@@ -1,9 +1,9 @@
-package com.donny.datastruct;
+package com.donny.datastruct.list;
 
 import com.donny.datastruct.abstractstruct.MyList;
 
 /**
- * @author Your Name
+ * @author donnyyan
  * @date 2024/5/31
  */
 public class MyLinkedList implements MyList {
@@ -107,20 +107,4 @@ public class MyLinkedList implements MyList {
         System.out.println();
     }
 
-    // 主函数用于测试
-    public static void main(String[] args) {
-        MyLinkedList list = new MyLinkedList();
-        list.add(1);
-        list.add(2);
-        list.add(3);
-        list.printList();
-
-        list.set(1, 4);
-        list.printList();
-
-        list.remove(2);
-        list.printList();
-
-        System.out.println("Size: " + list.size());
-    }
 }

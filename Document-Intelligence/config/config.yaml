@@ -1,0 +1,54 @@
+# Configuration for Document Intelligence System
+
+# OCR Settings
+ocr:
+  use_gpu: true
+  use_angle_cls: true
+  lang: ['ch', 'en']  # Supported languages
+  det_model_dir: null  # Use default models
+  rec_model_dir: null
+  cls_model_dir: null
+  
+# Table Extraction Settings
+table:
+  # Camelot settings
+  flavor: 'lattice'  # 'lattice' or 'stream'
+  threshold: 50
+  
+  # img2table settings
+  min_confidence: 0.5
+  
+# Formula Detection Settings
+formula:
+  # For chemical formula recognition
+  smiles_validation: true
+  formula_patterns:
+    - 'H2O'
+    - 'CO2'
+    - 'CH3COOH'
+  confidence_threshold: 0.7
+
+# Image Processing
+image:
+  max_width: 2560
+  max_height: 1920
+  quality: 95
+  dpi: 300
+  
+# Output Settings
+output:
+  format: 'json'  # 'json', 'csv', 'both'
+  save_intermediate: false
+  output_dir: './data/results/'
+
+# Processing
+processing:
+  num_workers: 4
+  timeout: 300  # seconds
+  batch_size: 1
+  
+# Logging
+logging:
+  level: 'INFO'  # 'DEBUG', 'INFO', 'WARNING', 'ERROR'
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  file: './logs/document_intelligence.log'

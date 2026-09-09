@@ -19,6 +19,7 @@
 - 📖 学习经典数据结构和算法
 - 💻 实现常见算法和数据结构
 - 🔍 练习 LeetCode、牛客网等平台的算法题目
+- 🔐 通过自动判题练习 Java Web 安全代码审计
 - 📝 记录学习过程和心得体会
 - 📊 总结算法模板和解题思路
 
@@ -47,6 +48,7 @@ Algorithm/
 │   │   │           └── hash/        # 哈希表
 │   │   └── test/                    # 测试代码
 │   └── pom.xml
+├── java-security-lab/       # Java Web 安全代码审计与自动判题
 ├── python/                  # Python 实现（可选）
 ├── leetcode/               # LeetCode 题目解答
 │   ├── easy/               # 简单题
